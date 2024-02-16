@@ -12,7 +12,7 @@
       </div>
 
       <!-- child : counter & logger-->
-      <CounterTask @count-multiple-of-five="multipleOfFive" :initial="initial" />
+      <CounterTask @count-multiple-of-five="multipleOfFive" @reset-counter="resetCounter" :initial="initial" />
       <LoggerTask :logMsg="logMessage"  />
     </div>
 </template>
@@ -31,22 +31,27 @@ export default {
     return {
       initial: 0,
       logMessage: '',
-      currentCount: 0,
     };
   },
   methods: {
-    // msg multiply of 5 : listen to counter, return msg to logger
+    // log msg multiply of 5 : listen to counter, return msg to logger
     multipleOfFive({ count, doubleCount }) {
       this.currentCount = count;
       this.logMessage = `Basic Count: ${count}<br>Double Count: ${doubleCount}`;
     },
+
+    // reset log msg & input field
+    resetCounter() {
+      this.logMessage = "",
+      this.initial = 0
+    }
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
