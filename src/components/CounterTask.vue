@@ -17,9 +17,7 @@
     <div class="counter-btn">
         <button @click="increment" class="increment-btn"><span class="material-symbols-rounded">add</span></button>
         <button @click="decrement" class="decrement-btn"><span class="material-symbols-rounded">remove</span></button>
-        <button @click="reset" class="reset-btn"><span class="material-symbols-rounded">
-restart_alt
-</span></button>
+        <button @click="reset" class="reset-btn"><span class="material-symbols-rounded">restart_alt</span></button>
     </div>
 </template>
 
@@ -56,6 +54,7 @@ export default {
         decrement() {
             this.count--;
         },
+        //reset counter fx
         reset() {
             this.count = 0;
             this.$emit('reset-counter', {
